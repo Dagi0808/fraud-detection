@@ -1,71 +1,65 @@
-# 💳 Fraud Detection Project (E-commerce + Credit Card)
+📌 Fraud Detection Project — E-commerce & Credit Card Transactions
+📖 Overview
 
-## 📌 Overview
-This project builds a fraud detection system for e-commerce and bank transactions using machine learning. The goal is to detect fraudulent activity while minimizing false positives and false negatives.
+This project builds a machine learning system to detect fraudulent transactions in both e-commerce and credit card datasets. The goal is to reduce financial loss while minimizing false positives and maintaining customer trust.
 
----
+📂 Datasets
+Fraud_Data.csv → E-commerce transactions (user behavior, device, IP, time)
+creditcard.csv → Bank transactions (PCA anonymized features)
+IpAddress_to_Country.csv → Geolocation mapping
+⚙️ Project Pipeline
+1. Data Understanding & Cleaning
+Missing value analysis
+Duplicate removal
+Data type conversion (timestamps)
+2. Exploratory Data Analysis (EDA)
+Class imbalance analysis
+Fraud pattern exploration
+Feature distribution analysis
+Fraud by country analysis (IP mapping)
+3. Feature Engineering
 
-## 📊 Datasets
-- **Fraud_Data.csv** → E-commerce transactions
-- **creditcard.csv** → Bank credit card transactions (PCA features)
-- **IpAddress_to_Country.csv** → IP geolocation mapping
+Created behavioral fraud signals:
 
----
+Transaction velocity features:
+time_since_prev_txn
+rapid_transaction flag
+User behavior features:
+user_transaction_count
+device_transaction_count
+Time-based features:
+hour_of_day
+day_of_week
+time_since_signup
+4. Data Preprocessing
+One-hot encoding (categorical variables)
+StandardScaler normalization
+Removal of ID columns (user_id, device_id)
+5. Class Imbalance Handling
+SMOTE applied ONLY on training data
+Ensures no data leakage
+📊 Current Status
 
-## ⚙️ Work Completed (Task 1)
+✔ Task 1 completed
+✔ Feature engineering completed
+✔ Dataset ready for modeling
 
-### 1. Data Cleaning
-- Handled missing values
-- Removed duplicates
-- Converted timestamps to datetime format
+🚀 Next Steps (Task 2)
+Logistic Regression (baseline)
+Random Forest / XGBoost
+Evaluation metrics:
+F1-score
+Precision-Recall AUC
+Confusion matrix
+Model explainability using SHAP
+🧠 Key Learning
+Fraud detection requires feature engineering more than complex models
+Class imbalance significantly impacts model evaluation
+Data leakage prevention is critical in SMOTE workflows
+🛠 Tech Stack
 
-### 2. Exploratory Data Analysis (EDA)
-- Checked class imbalance
-- Analyzed transaction behavior
-- Explored fraud patterns by features
+Python, Pandas, NumPy, Scikit-learn, Imbalanced-learn, Matplotlib, Seaborn
 
-### 3. Feature Engineering
-Created behavioral features:
-- time_since_signup
-- hour_of_day
-- day_of_week
-- user_transaction_count
-- device_transaction_count
-- time_since_prev_txn
-- rapid_transaction flag
+👨‍💻 Author
 
-### 4. Preprocessing
-- One-hot encoding for categorical variables
-- Feature scaling using StandardScaler
-- Removed ID columns (user_id, device_id)
-
-### 5. Class Imbalance Handling
-- Applied SMOTE on training data only
-
----
-
-## 📌 Current Status
-✔ Task 1 completed  
-✔ Dataset ready for modeling  
-
----
-
-## 🚀 Next Steps
-- Train baseline model (Logistic Regression)
-- Train ensemble models (Random Forest / XGBoost)
-- Evaluate using F1-score and AUC-PR
-- Model explainability using SHAP
-
----
-
-## 🛠 Tech Stack
-- Python
-- Pandas, NumPy
-- Scikit-learn
-- Imbalanced-learn (SMOTE)
-- Matplotlib, Seaborn
-
----
-
-## 👨‍💻 Author
-Fraud Detection ML Project — Adey Innovations Challenge
+Fraud Detection Project — Adey Innovations ML Challenge
